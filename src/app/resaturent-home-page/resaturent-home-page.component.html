@@ -1,0 +1,50 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+
+<span *ngFor="let restaurent of restaurents">
+    <mat-card >
+        <div class="row">
+          <div class="col-2">
+              <img style="width:200px;height:150px" src="/assets/{{restaurent.id%5+1}}.jpg"/>
+          </div>
+          <div class="col-6">
+            <mat-card-header>
+                <mat-card-title style="font-size:1.5em">{{restaurent.name}}</mat-card-title>
+                <mat-card-subtitle>{{restaurent.categoryName}}</mat-card-subtitle>
+            </mat-card-header>
+            
+            
+            <mat-card-content style="margin-left:2%">
+                <div>
+                    <span class="material-icons">
+                        place
+                    </span>
+                    {{restaurent.location}}
+                </div>
+                <div>
+                    <strong>Tags:</strong> {{restaurent.tags}}
+                </div>
+              </mat-card-content>
+          </div>
+          <div class="col-3">
+                <div>
+                    <span [class]="restaurent.rating &gt;= 1? 'fa fa-star checked' : 'fa fa-star'"></span>
+                    <span [class]="restaurent.rating &gt;= 2? 'fa fa-star checked' : 'fa fa-star'"></span>
+                    <span [class]="restaurent.rating &gt;= 3? 'fa fa-star checked' : 'fa fa-star'"></span>
+                    <span [class]="restaurent.rating &gt;= 4? 'fa fa-star checked' : 'fa fa-star'"></span>
+                    <span [class]="restaurent.rating &gt;= 5? 'fa fa-star checked' : 'fa fa-star'"></span>
+                </div>
+                <br/>
+                <div>
+                    <span>
+                        <strong style="font-size:large">{{restaurent.price}} {{restaurent.denomination}}</strong> 
+                        per person apprx.
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+
+        
+    </mat-card>    
+</span>

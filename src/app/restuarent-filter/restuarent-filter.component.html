@@ -1,0 +1,40 @@
+<form [formGroup]="filterForm">
+<mat-expansion-panel >
+    <mat-expansion-panel-header class="m-bg">
+      <mat-panel-title>
+        Sort By
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-radio-group formControlName="sortBy" name="sort">
+            <mat-list-item>
+                <mat-radio-button value="rating" color="primary" ></mat-radio-button>
+                <mat-label>Rating</mat-label>
+            </mat-list-item>
+            <mat-list-item>
+                <mat-radio-button value="price" color="primary" ></mat-radio-button>
+                <mat-label>Price</mat-label>
+            </mat-list-item>
+      </mat-radio-group>
+    </mat-list>
+  </mat-expansion-panel>
+  <mat-expansion-panel >
+    <mat-expansion-panel-header class="m-bg">
+      <mat-panel-title>
+        Category
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <mat-list no-padding>
+      <span *ngFor="let category of categories">
+        <mat-list-item >
+          <mat-checkbox [checked]="category.checked" [value]="category.id" (change)="categorySelect($event,category)">{{category.name}}</mat-checkbox>
+        </mat-list-item>
+      </span>
+    </mat-list>
+  </mat-expansion-panel>
+<button  mat-button (click)="applyFilters()">Apply</button>
+<button  mat-button (click)="clearFilters()">Clear</button>
+
+</form>
