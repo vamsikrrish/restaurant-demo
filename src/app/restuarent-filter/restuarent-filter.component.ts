@@ -42,7 +42,7 @@ ratings:any[]=[
 
   categorySelect(event,category){
     const formCategoryValue=this.filterForm.get('category').value;
-    let selectedCategories:any[]=formCategoryValue==null || formCategoryValue==''? []:formCategoryValue.value.split();
+    let selectedCategories:any[]=!formCategoryValue || formCategoryValue==''? []:formCategoryValue.split();
       if (event.checked) {
         category.checked = true;
         selectedCategories.push(category.id);
@@ -59,7 +59,7 @@ ratings:any[]=[
 
     ratingSelect(event,rating){
       const formRatingValue=this.filterForm.get('rating').value;
-      let selectedRatings:any[]=formRatingValue==null || formRatingValue==''? []:formRatingValue.split(',');
+      let selectedRatings:any[]=!formRatingValue || formRatingValue==''? []:formRatingValue.split(',');
         if (event.checked) {
           rating.checked = true;
           selectedRatings.push(rating.id);
