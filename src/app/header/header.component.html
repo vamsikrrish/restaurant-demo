@@ -2,7 +2,7 @@
     <mat-toolbar-row>
       <span>Tomato</span>
       <mat-form-field style="margin-top:1%;margin-left:10%;width:65%;" autocomplete="off" appearance="outline" >
-        <button  mat-button disabled matPrefix mat-icon-button aria-label="Clear" (click)="value=''">
+        <button  mat-button disabled matPrefix mat-icon-button aria-label="Clear" >
             <mat-icon>search</mat-icon>
           </button>
           <input matInput (input)="search()" [(ngModel)]="searchTerm" placeholder="Enter restauent name / Tags / category etc.,">
