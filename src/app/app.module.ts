@@ -17,6 +17,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Ng5SliderModule } from 'ng5-slider';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 
 
 
@@ -35,50 +38,25 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatToolbarModule,
-    A11yModule,
-    CdkStepperModule,
-    CdkTableModule,
-    CdkTreeModule,
-    MatAutocompleteModule,
-    MatBadgeModule,
-    MatBottomSheetModule,
     MatButtonModule,
-    MatButtonToggleModule,
     MatCardModule,
     MatCheckboxModule,
-    MatChipsModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatDialogModule,
-    MatDividerModule,
     MatExpansionModule,
-    MatGridListModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
-    MatNativeDateModule,
-    MatPaginatorModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule,
     MatRadioModule,
     MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
-    MatSliderModule,
-    MatSlideToggleModule,
-    MatSnackBarModule,
-    MatSortModule,
-    MatTableModule,
-    MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule,
-    MatTreeModule,
-    PortalModule,
-    ScrollingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng5SliderModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

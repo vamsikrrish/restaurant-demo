@@ -15,7 +15,7 @@ export class RestaurentService {
   filterPreferenceChanged:Subject<any>=new Subject();
   filterPrefereneces:any;
   searchTerm: string;
-  filterParams: any;
+  filterParams: any={};
   sortBy: string;
   refreshRequired: Subject<boolean>=new Subject();
 
@@ -34,13 +34,16 @@ export class RestaurentService {
     });
   }
   incrementOffset() {
-    this.offset+=this.limit;
+    this.offset=this.offset+this.limit;
+    console.log(this.limit,this.offset);
   }
   resetOffset(){
       this.offset=0;
   }
   getRestaurents(): Observable<any>{
    console.log(this.filterParams);
+   this.filterParams.limit=this.limit;
+   this.filterParams.offset=this.offset;
    return this.http.get('http://localhost:8080/get-restaurents',{params:this.filterParams});
   }
   getCategories() {
@@ -56,20 +59,13 @@ export class RestaurentService {
       if (this.filterPrefereneces.category && this.filterPrefereneces.category!='') {       
        this.filterParams.category = this.filterPrefereneces.category;
       }
-      if (this.filterPrefereneces.minPrice > 0) {
-        this.filterParams.minPrice = this.filterPrefereneces.minPrice;
-      }
-      if (this.filterPrefereneces.maxPrice > 0) {
-        this.filterParams.maxPrice = this.filterPrefereneces.maxPrice;
+      if (this.filterPrefereneces.rating && this.filterPrefereneces.rating != '') {
+        this.filterParams.rating = this.filterPrefereneces.rating;
        }
-       if (this.filterPrefereneces.minrating > 0) {
-        this.filterParams.minrating = this.filterPrefereneces.minrating;
+      if (this.filterPrefereneces.priceRange && this.filterPrefereneces.priceRange.length > 0) {
+        this.filterParams.minPrice = this.filterPrefereneces.priceRange[0];
+        this.filterParams.maxPrice = this.filterPrefereneces.priceRange[1];
        }
-       if (this.filterPrefereneces.maxrating > 0) {
-        this.filterParams.maxrating = this.filterPrefereneces.maxrating;
-       }
-
-
     } 
     if(this.searchTerm && this.searchTerm!=''){
       this.filterParams.searchTerm=this.searchTerm;

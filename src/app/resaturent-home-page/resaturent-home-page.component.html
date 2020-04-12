@@ -1,5 +1,16 @@
 <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<div
+class="search-results"
+infiniteScroll
+[infiniteScrollDistance]="2"
+[infiniteScrollThrottle]="500"
+(scrolled)="onScroll()"
+[scrollWindow]="false"
 
+>
+<mat-card style="text-align:center" *ngIf="!isLoading && restaurents.length==0">
+    No restaurents found
+</mat-card>
 <span *ngFor="let restaurent of restaurents">
     <mat-card >
         <div class="row">
@@ -48,3 +59,5 @@
         
     </mat-card>    
 </span>
+
+</div>

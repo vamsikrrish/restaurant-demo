@@ -24,7 +24,7 @@ restaurents:any[]=[]
     this.isLoading=true;
     this.restaurentService.getRestaurents().subscribe((responseBody:any[])=>{
       this.isLoading=false;
-      if(responseBody){
+      if(responseBody && responseBody.length>0){
         this.restaurentService.incrementOffset();
         console.log('data received:',responseBody);
         this.restaurents=this.restaurents.concat(responseBody);
@@ -40,6 +40,10 @@ restaurents:any[]=[]
     this.restaurentService.resetOffset();
     this.restaurents=[];
     this.fetchResaturents();
+  }
+  onScroll(){
+    this.fetchResaturents();
+    console.log('scrolled...!!');
   }
 
 }

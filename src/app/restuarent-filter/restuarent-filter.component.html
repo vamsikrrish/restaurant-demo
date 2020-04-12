@@ -1,4 +1,9 @@
 <form [formGroup]="filterForm">
+  <mat-card>
+    <label>Price</label>
+    <ng5-slider [options]="options" formControlName="priceRange"></ng5-slider>
+  </mat-card>
+  
 <mat-expansion-panel >
     <mat-expansion-panel-header class="m-bg">
       <mat-panel-title>
@@ -34,6 +39,25 @@
       </span>
     </mat-list>
   </mat-expansion-panel>
+  <mat-expansion-panel >
+    <mat-expansion-panel-header class="m-bg">
+      <mat-panel-title>
+        Rating      
+     </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list no-padding>
+        <span *ngFor="let rating of ratings">
+          <mat-list-item >
+            <mat-checkbox [checked]="rating.checked" [value]="rating.id" (change)="ratingSelect($event,rating)">{{rating.id}}</mat-checkbox>
+          </mat-list-item>
+        </span>
+      </mat-list>
+    </mat-list>
+  </mat-expansion-panel>
+  
+  
 <button  mat-button (click)="applyFilters()">Apply</button>
 <button  mat-button (click)="clearFilters()">Clear</button>
 
